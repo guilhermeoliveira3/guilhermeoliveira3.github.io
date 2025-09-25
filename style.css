@@ -1,7 +1,70 @@
-body{
-    background-color: beige;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-#sla{
-    color: brown;
+header, footer, section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vh;
+}
+
+header {
+    background-color: rgb(19, 19, 19);
+    height: 10vh;
+    font-weight: bold;
+    color: white;
+    position: sticky;
+    top: 0;
+}
+nav{
+    position:top-left;
+    margin-left: auto;
+}
+nav ul{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+}
+nav a{
+    text-decoration: none;
+    color: white;
+}
+nav a:hover{
+    text-decoration: underline;
+}
+section:nth-child(1) {
+    background-color: lightgrey;
+    height: 90vh;
+    flex-direction: column;
+    background-image: url("https://assets.gamearena.gg/wp-content/uploads/2025/04/11165732/molodoy-furia-1024x640.jpg");
+    background-size: cover;
+}
+section:nth-child(1) p{
+    position:over;
+    margin-left: 10px;
+
+    color: white;
+    font-size: 5vh;
+}
+
+section:nth-child(2) {
+    background-color: lightgreen;
+    height: 100vh;
+    font-size: 3vh;
+}
+
+section:nth-child(3) {
+    background-color: lightcoral;
+    height: 90vh;
+    font-size: 3vh;
+}
+
+footer {
+    background-color: lightblue;
+    height: 10vh;
+    font-weight: bold;
+    color: white;
 }
