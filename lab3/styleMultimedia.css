@@ -32,6 +32,7 @@ header h1 {
 
 nav {
   display: flex;
+  flex-wrap: wrap;
   gap: 15px;
 }
 
@@ -45,6 +46,25 @@ nav a {
 nav a:hover {
   background: rgba(0, 0, 0, 0.2);
   
+}
+
+@media (max-width: 800px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 20px;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  nav a {
+    text-align: center;
+    padding: 10px;
+  }
 }
 
 #sectionsLinks{
@@ -108,6 +128,11 @@ nav a:hover {
   justify-content: center;
   align-items: center;
   height: 100vh;
+
+  iframe{
+    width: 900px;
+    height: 500px;
+  }
 }
 
 #poema{
@@ -121,6 +146,43 @@ nav a:hover {
   padding: 20px;
 }
 
+@media (max-width: 800px) {
+  
+  #sectionsLinks {
+    flex-direction: row;
+    padding: 50px 20px;
+    height: 100vh;
+    gap: 5px;
+    align-items: start;
+  }
+
+  #sectionsLinks a {
+    width: 80%;
+    text-align: center;
+  }
+
+  
+  .fotografias img {
+    width: 200px;
+  }
+
+  
+  #video {
+    height: 50vh;
+    padding: 20px 0;
+
+    iframe{
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  
+  #poema {
+    height: auto;
+    padding: 20px;
+  }
+}
 
 footer {
   background: #333;

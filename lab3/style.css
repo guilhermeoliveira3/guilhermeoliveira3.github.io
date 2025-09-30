@@ -9,6 +9,7 @@ body {
   font-family: Arial, sans-serif;
   background: #f5f5f5;
   color: #333;
+  height: 100vh;
 }
 
 header {
@@ -20,6 +21,8 @@ header {
   align-items: center;
   justify-content: space-between;
 
+  
+
   position: sticky;
 }
 
@@ -30,6 +33,7 @@ header h1 {
 
 nav {
   display: flex;
+  flex-wrap: wrap;
   gap: 15px;
 }
 
@@ -45,37 +49,59 @@ nav a:hover {
   
 }
 
-section:nth-child(1){
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 20px;
+  }
 
+  nav {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  nav a {
+    text-align: center;
+    padding: 10px;
+  }
 }
 
-section:nth-child(2){
-  
-}
-
-section:nth-child(2){
-  
-}
-
-section:nth-child(3){
-  
-}
 
 #fotos {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   gap: 10px;
   padding: 20px;
   background: white;
 }
 
 #fotos img {
-  width: 30%;
+  width: 50%;
   height: auto;
   border-radius: 4px;
   object-fit: cover;
 }
 
+
+
+@media (min-width: 600px) {
+
+
+  #fotos {
+    flex-direction: row;
+  }
+
+  #fotos img {
+  width: 30%;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+}
+}
 
 main {
   background: white;
@@ -83,6 +109,12 @@ main {
   margin: 20px auto;
   max-width: 1000px;
   border-radius: 4px;
+
+}
+
+main #texto {
+  text-align: center;
+  margin-top: 20px;
 }
 
 main h2 {
@@ -96,27 +128,4 @@ footer {
   text-align: center;
   padding: 15px 0;
   margin-top: 20px;
-}
-
-
-
-/*multimedia*/
-.fotografias {
-    display: flex;
-    gap: 10px;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-.fotografias img {
-    width: 150px;
-    border-radius: 20px;
-}
-
-#poesia {
-    p:nth-of-type(odd) {
-        color: blue;
-    }
-    p:nth-of-type(even) {
-        color: green;
-    }
 }

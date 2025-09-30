@@ -32,6 +32,7 @@ header h1 {
 
 nav {
   display: flex;
+  flex-wrap: wrap;
   gap: 15px;
 }
 
@@ -47,29 +48,25 @@ nav a:hover {
   
 }
 
-#sectionsLinks{
-  height: 90vh;
-  background-image: url("https://upload.wikimedia.org/wikipedia/commons/3/3f/CentrosulUdi2.jpg");
-  background-size: cover;
+@media (max-width: 800px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 20px;
+  }
 
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-self: start;
-  padding: 200px;
+  nav {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  nav a {
+    text-align: center;
+    padding: 10px;
+  }
 }
 
-#sectionsLinks a {
-  background: rgba(182, 198, 202, 0.8);
-  padding: 20px;
-  border-radius: 8px;
-  text-decoration: none;
-  color: #333;
-  font-size: 20px;
-  font-weight: bold;
-  transition: background 0.3s, transform 0.3s;
-  border: black 2px solid;
-}
 
 main {
     display: flex;
@@ -83,7 +80,7 @@ main {
     height: 80vh;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 800px) {
   main{
     flex-direction: row;
   }
