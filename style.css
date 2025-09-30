@@ -35,19 +35,21 @@ nav a{
 nav a:hover{
     text-decoration: underline;
 }
+
 section:nth-child(1) {
     background-color: lightgrey;
     height: 90vh;
     flex-direction: column;
-    background-image: url("https://assets.gamearena.gg/wp-content/uploads/2025/04/11165732/molodoy-furia-1024x640.jpg");
+    background-image: url("https://s1.bwallpapers.com/wallpapers/2014/01/24/abstract-1920x1080_112537987.jpg");
     background-size: cover;
 }
 section:nth-child(1) p{
-    position:over;
-    margin-left: 10px;
-
+    position:relative;
+    margin-right: auto;
+    margin-left: 125px;
     color: white;
-    font-size: 5vh;
+    font-size: 20px;
+    background-color: rgb(19, 19, 19);
 }
 
 section:nth-child(2) {
@@ -56,10 +58,78 @@ section:nth-child(2) {
     font-size: 3vh;
 }
 
+#projetos{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+
+}
+
+.tituloProjetos{
+    margin-bottom: 20px;
+    padding: 10px;
+    
+}
+
+.lab1{
+    grid-area: lab1;
+}
+
+.lab2{
+    grid-area: lab2;
+}
+
+.lab3{
+    grid-area: lab3;
+}
+
+.linksProjetos ul{
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr, 1fr;
+    grid-template-rows: 1fr, 1fr, 1fr;
+
+    grid-template-areas: 'lab1 .'
+                         '. lab2'
+                         'lab3 .';
+    gap: 10px;
+}
+
+
+
+.linksProjetos li{
+    background-color: lightgrey;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px 30px;
+}
+
+.linksProjetos a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
 section:nth-child(3) {
     background-color: lightcoral;
     height: 90vh;
     font-size: 3vh;
+    flex-direction: column;
+    padding: 30px;
+}
+
+@media (min-width: 600px) {
+    section:nth-child(3){
+        flex-direction: row;
+        
+    }
+    
+    .imgDIW{
+        width: 200px;
+        height: 15px;
+    }
 }
 
 footer {
