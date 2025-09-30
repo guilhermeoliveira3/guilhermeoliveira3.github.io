@@ -4,32 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multimédia</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleMultimedia.css">
 </head>
 <body>
     <header>
-            <h1>Uberlândia</h1>
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="local.html">Localização</a>
-                <a href="multimedia.html">Multimédia</a>
-                <a href="info.html">Informação</a>
-                
-            </nav>
-        </header>
+        <h1>Uberlândia</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="local.html">Localização</a>
+            <a href="multimedia.html">Multimédia</a>
+            <a href="info.html">Informação</a> 
+        </nav>
+    </header>
+            
         
         <main>
-            <h2>Multimédia</h2>
-            
-            <p>Nesta página encontra conteúdos multimedia</p>
-            <p>
-                <a href="#fotos">Fotografias</a>
-                <a href="#video">Video</a>
-                <a href="#poema">Poema</a>
-            </p>
 
-            <section>
-                <h3 id="fotos">Fotografias</h3>
+            <section id="sectionsLinks">
+                <div class="card1"><a href="#fotos">Fotografias</a></div>
+                <div class="card1"><a href="#video">Video</a></div>
+                <div class="card1"><a href="#poema">Poema</a></div>
+            </section>
+            
+
+            <section id="fotos">
+                
                 <div class="fotografias">
                     <img src="images/predios.jpg" alt="Vista de Uberlândia">
                     <img src="images/parque.jpg" alt="Lagoa do Parque do Sabiá">
@@ -40,13 +39,16 @@
                 </div>
             </section>
 
-            <section>
-                <h3 id="video">Video</h3>
-                <iframe width="450" height="250" src="https://www.youtube.com/embed/hFJvDRbYTKA?si=NXKF-qroRPuLMLPe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <section id="video">
+                <div>
+                    <iframe width="900" height="500" src="https://www.youtube.com/embed/hFJvDRbYTKA?si=NXKF-qroRPuLMLPe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+
             </section>
 
-            <section>
-                <h3 id="poema">Poesia</h3>
+            <section id="poema">
+                <h2>Poema</h2>
+                
                 <div id="poesia">
                     <p>No coração do cerrado mineiro,</p>
                     <p>ergue-se Uberlândia,</p>
