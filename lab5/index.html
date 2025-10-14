@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding : 0;
+        }
+
+        main{
+            background-color: lightblue;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            height: 100vh;
+        }
+
+        main section{
+            background-color: snow;
+            border-radius: 5px;
+            padding: 20px;
+        
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <section id="idPassa">
+            <p>1.Passa por aqui</p>
+
+            <script>
+                //Variáveis
+                const frase = document.querySelector("#idPassa p");
+
+                //Funções
+
+
+                function mudarFrase (modo){
+                    if (modo === 1) {
+                        frase.textContent = "1. Obrigado por passar :)"
+                    } else {
+                        frase.textContent = "1. Passa por aqui"
+                    }
+                }
+
+                //eventos
+                frase.onmouseover = () => {mudarFrase(1)};
+                frase.onmouseout = () => {mudarFrase(0)};
+            </script>
+        </section>
+
+        <section id="idPinta">
+            <p>Pinta-me</p>
+            
+            <button>Red</button>
+            <button>Green</button>
+            <button>Yellow</button>
+
+            <script>
+                //var
+                const texto = document.querySelector("#idPinta p");
+                const b1 = document.querySelector("#idPinta button:nth-child(2)");
+                const b2 = document.querySelector("#idPinta button:nth-child(3)");
+                const b3 = document.querySelector("#idPinta button:nth-child(4)");
+
+                //fun
+                function mudarCor(cor){
+                    texto.style.color = cor;
+                }
+
+                //event listener
+                b1.onclick = () => {mudarCor("red")};
+                b2.addEventListener('click', () => mudarCor("green"));
+                b3.onclick = () => {mudarCor("yellow")};
+
+            </script>
+
+            <script></script>
+        </section>
+
+        <section id="idEscreve">
+            <label for="input" id="l"><p>3. Experimenta escrever...</p></label>
+
+            <input id="input" type="text">
+
+            <script>
+                const input = document.querySelector("#idEscreve input");
+
+                const cores = ["red", "blue", "green"];
+                let i = 0;
+                //fun
+                function colorir(){
+                    input.style.backgroundColor = cores[i];
+                    i++;
+                    if (i >= cores.length) i = 0;
+                }
+
+                //listener
+                input.onkeyup = colorir;
+            </script>
+        </section>
+
+        <section id="idEscreveCor>
+            <label for="input" id="l"><p>4. Escreve cor em ingles</p></label>
+
+            <input type="text">
+
+            <button>Submeter</button>
+
+            <script>
+                const input = document.querySelector("#idEscreveCor input");
+                const btn = document.querySelector("#idEscreveCor button");
+
+                //fun
+                function colorir2(cor){
+                    document.querySelector("body").style.background = cor;
+                }
+
+                //listener
+                btn.onclick = () => {colorir2(input.value)};
+            </script>
+        </section>
+
+        <section id="idEscolhaUmaCor">
+            <label>4. Escolha uma cor:</label>
+            <select id="corEscolhida">
+                <option value="white">White</option>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+                <option value="yellow">Yellow</option>
+                <option value="purple">Purple</option>
+                <option value="pink">Pink</option>
+                <option value="orange">Orange</option>
+                <option value="brown">Brown</option>
+                <option value="black">Black</option>
+                <option value="gray">Gray</option>
+            </select>
+
+            <script>
+
+                const select = document.querySelector("#corEscolhida");
+                const main = document.querySelector("main");
+
+
+                select.onchange = function () {
+                    const cor = select.value;
+                    main.style.backgroundColor = cor;
+                };
+
+            </script>
+        </section>
+
+        <section id="idConta">
+
+            <p>5.</p>
+            <button>conta!</button>
+
+            <script>
+                const botaoConta = document.querySelector("#idConta button");
+                const Conta = document.querySelector("#idConta p");
+
+                let contador = 0;
+
+                botaoConta.onclick = function () {
+                    contador++;
+                    Conta.textContent = contador;
+                }; 
+            </script>
+
+
+        </section>
+
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+</html>
