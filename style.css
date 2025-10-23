@@ -95,6 +95,10 @@ section:nth-child(2) {
     grid-area: lab5;
 }
 
+#lab6{
+    grid-area: lab6;
+}
+
 .linksProjetos{
     
     padding: 0;
@@ -106,7 +110,8 @@ section:nth-child(2) {
                          '. lab2'
                          'lab3 .'
                          '. lab4'
-                         'lab5 .';
+                         'lab5 .'
+                         '. lab6';
     gap: 20px;
 
     justify-content: center;
