@@ -3,9 +3,9 @@
     padding: 0;
 }
 
-body{
+body {
     background-color: snow;
-    
+
 }
 
 header {
@@ -22,13 +22,13 @@ header {
 }
 
 
-nav ul{
+nav ul {
     display: flex;
     gap: 10px;
     list-style: none;
 }
 
-nav a{
+nav a {
     text-decoration: none;
     background-color: rgb(30, 167, 71);
     color: rgb(255, 255, 255);
@@ -38,24 +38,106 @@ nav a{
     box-shadow: 0 2px 5px black;
 }
 
-#produtos{
-    height: 100vh;
+#secP {
     background-color: rgb(200, 230, 201);
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-    
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+}
+
+#produtos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
+    gap: 2rem;
+    text-align: center;
+    justify-items: center;
+    padding: 20px;
+
+
 }
 
 #produtos article {
-    padding: 10px;
+    padding: 1.5rem;
     background-color: snow;
-    width: 200px;
-    border-radius: 10px;
+    max-width: 300px;
+    margin-top: 15px;
+    gap: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+#produtos article img {
+    width: 100%;
+    max-width: 250px;
+    height: 250px;
+    object-fit: contain;
+    padding: 20px;
+}
+
+#produtos article button {
+
+    padding: 5px;
+    border-radius: 5px;
+
+}
+
+#produtos article button:hover {
+    transform: scale(1.05);
+}
+
+
+#secC {
+    height: 90vh;
+    background-color: rgb(165, 214, 167);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
 }
 
 #cesto {
-    height: 90vh;
-    background-color: rgb(165, 214, 167);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
+    gap: 2rem;
+    text-align: center;
+    justify-items: center;
+    padding: 20px;
+
+
+}
+
+#cesto article {
+    padding: 1.5rem;
+    background-color: beige;
+    max-width: 300px;
+    margin-top: 15px;
+    gap: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+#cesto article img {
+    width: 100%;
+    max-width: 250px;
+    height: 250px;
+    object-fit: contain;
+    padding: 20px;
+}
+
+#cesto article button {
+
+    padding: 5px;
+    border-radius: 5px;
+
+}
+
+#cesto article button:hover {
+    transform: scale(1.05);
 }
