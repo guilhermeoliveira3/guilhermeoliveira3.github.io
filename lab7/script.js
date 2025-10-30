@@ -7,22 +7,85 @@ const secaoCesto = document.getElementById('cesto');
 const valorTotalP = document.querySelector('#vlr')
 
 let produtos = []
+let produtosFiltrados = []
 let valorTotal = 0.0;
+let categorias = []
+
+const filtros = {
+    pesquisa: '',
+    categoria: 'Todas as categorias',
+    ordenacao: 'nome'
+}
 
 
-
-function carregarProdutos(){
+function carregarProdutos() {
     fetch(urlP)
         .then(response => response.json())
-        .then(data => {  
+        .then(data => {
             produtos = data;
+            produtosFiltrados = [...produtos]
+            carregarCategorias();
             carregarLocalStorage();
         })
         .catch(error => console.error('Erro:', error));
 }
 
+function carregarCategorias(){
+    fetch(urlC)
+        .then(response => response.json())
+        .then(data => categorias = data)
+        .catch(error => console.error('Erro:', error));
+}
+
+function aplicarFiltros(){
+    let produtosTemp = [...produtos];
+
+    if(filtros.pesquisa) {
+        produtosTemp = produtosTemp.filter(produto =>
+            //se o nome do produto tiver a pesquisa(mesmo que uma parte apenas) - case insensitive
+            produto.title.toLowerCase().includes(filtros.pesquisa.toLowerCase())
+        );
+    }
+
+    if(filtros.categoria && filtros.categoria !== 'Todas as categorias'){
+        produtosTemp = produtosTemp.filter(produto =>
+            produto.category === filtros.categoria
+        );
+    }
+
+    produtosTemp = ordenarProdutos(produtosTemp, filtros.ordenacao);
+
+    produtosFiltrados = produtosTemp;
+    renderizarProdutos();
+}
+
+function ordenarProdutos(arrayProdutos, crit){
+    return arrayProdutos.sort((a,b) => {
+        switch (crit) {
+            case 'nome':
+                return a.title.localeCompare(b.title);
+            case 'preco':
+                return a.price - b.price;
+            case 'preco-desc':
+                return b.price - a.price;
+            default:
+                return 0;
+        }
+    })
+}
+
+function renderizarProdutos() {
+    secaoProdutos.innerHTML = '';
+
+    produtosFiltrados.forEach(produto => {
+        const art = criarProduto(produto);
+        secaoProdutos.appendChild(art);
+    });
+}
+
+
 function attCesto() {
-    if (valorTotalP){
+    if (valorTotalP) {
         valorTotalP.textContent = `${valorTotal.toFixed(2)}€`
     }
 
@@ -37,28 +100,29 @@ function guardarCestoLocalStorage() {
     localStorage.setItem('valor', valorTotal.toString());
 }
 
-function carregarLocalStorage(){
+function carregarLocalStorage() {
     secaoProdutos.innerHTML = '';
     secaoCesto.innerHTML = '';
-    
+
     const produtosNoCesto = JSON.parse(localStorage.getItem('cesto')) || [];
     const valorCesto = parseFloat(localStorage.getItem('valor') || 0.0);
 
     valorTotal = valorCesto;
     attCesto();
 
-    if(!produtos || produtos.length === 0){
+    if (!produtos || produtos.length === 0) {
         console.log('Nenhum produto carregado')
         return;
     }
 
+    aplicarFiltros();
+
     produtos.forEach(produto => {
-        const art = criarProduto(produto);
-        if(produtosNoCesto.includes(String(produto.id))){
+        if (produtosNoCesto.includes(String(produto.id))) {
+            const art = criarProduto(produto);
             secaoCesto.appendChild(art);
             art.querySelector('button').textContent = '- Remover do Cesto';
-        } else {
-            secaoProdutos.appendChild(art);
+            art.querySelector('button').className = "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded";
         }
     })
 }
@@ -100,13 +164,15 @@ function criarProduto(produto) {
     art.appendChild(btn);
 
     btn.addEventListener("click", () => {
-        if(art.parentElement != secaoCesto) {
+        if (art.parentElement != secaoCesto) {
             secaoCesto.appendChild(art);
             btn.textContent = "- Remover do Cesto"
             btn.className = "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded";
             valorTotal += produto.price;
         } else {
-            secaoProdutos.appendChild(art);
+            if (produtosFiltrados.some(p => p.id === produto.id)){
+                secaoProdutos.appendChild(art);
+            }
             btn.textContent = "+ Adicionar ao Cesto"
             btn.className = "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded";
             valorTotal -= produto.price;
@@ -118,7 +184,45 @@ function criarProduto(produto) {
     return art;
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+function setupFiltros() {
+
+    const inputPesquisa = document.getElementById('pesquisa');
+    if (inputPesquisa) {
+        inputPesquisa.addEventListener('input', (e) => {
+            filtros.pesquisa = e.target.value;
+            aplicarFiltros();
+        });
+    }
+
+    const selectTipo = document.getElementById('tipo');
+    if (selectTipo) {
+        selectTipo.addEventListener('change', function() {
+            filtros.categoria = this.value;
+            aplicarFiltros();
+        });
+    }
+
+    const selectOrdenacao = document.getElementById('order');
+    if (selectOrdenacao) {
+        selectOrdenacao.addEventListener('change', function() {
+            switch(this.value) {
+                case 'Preço Crescente':
+                    filtros.ordenacao = 'preco';
+                    break;
+                case 'Preço Decrescente':
+                    filtros.ordenacao = 'preco-desc';
+                    break;
+                case 'Ordenar pelo preço':
+                default:
+                    filtros.ordenacao = 'nome';
+                    break;
+            }
+            aplicarFiltros();
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
     const limparCestoBtn = document.getElementById('limparCesto');
     if (limparCestoBtn) {
         limparCestoBtn.addEventListener('click', () => {
@@ -132,9 +236,15 @@ document.addEventListener('DOMContentLoaded', function() {
             carregarLocalStorage();
         });
     }
-    
+
+    setupFiltros();
+
     // INICIA a aplicação
-    carregarProdutos(); 
+    carregarProdutos();
 });
+
+
+
+
 
 
