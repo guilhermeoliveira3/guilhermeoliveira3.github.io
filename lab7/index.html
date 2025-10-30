@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="bg-gray-200">
+    <header class="flex items-center justify-between pl-2 pr-2 
+    bg-gradient-to-r from-emerald-400 to-teal-600 
+    font-mono h-[10vh] sticky top-0">
+        <h1 class="text-3xl text-neutral-50">Loja DEISI</h1>
+        <nav>
+            <ul class="flex gap-3 list-none">
+                <li><a href="#secP" class="bg-teal-700 p-3 rounded-r-lg text-neutral-50">Produtos</a></li>
+                <li><a href="#cesto" class="bg-teal-700 p-3 rounded-l-lg text-neutral-50">Cesto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main>
+        <section id="secP" class="bg-indigo-100  flex flex-col items-center p-7 gap-3">
+            <h2 class="text-neutral-900 text-2xl">Selecione Seus Produtos</h2>
+            <section class="animate-gradient bg-gradient-to-r from-teal-900 via-cyan-700 to-violet-400  
+            w-full h-20 rounded-lg flex items-center p-7 justify-between">
+
+                <aside>
+                    <label for="tipo" class="text-neutral-50">Filtrar</label>
+                    <select id="tipo" class="bg-gray-300 rounded-lg p-1">
+                        <option>Todas as categorias</option>
+                        <option>T-shirts</option>
+                        <option>Canecas</option>
+                        <option>Meias</option>
+                    </select>
+                </aside>
+
+                <aside>
+                    <label for="order" class="text-neutral-50">Ordenar</label>
+                    <select id="order" class="bg-gray-300 rounded-lg p-1">
+                        <option>Ordenar pelo preço</option>
+                        <option>Preço Decrescente</option>
+                        <option>Preço Crescente</option>
+                    </select>
+                </aside>
+
+                <aside>
+                    <label for="pesquisa" class="text-neutral-50">Procurar:</label>
+                    <input type="text" id="pesquisa" placeholder="Pesquisar por nome..."
+                        class="bg-gray-200 rounded-lg p-2">
+                </aside>
+
+            </section>
+            <section id="produtos" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
+            gap-6 w-full max-w-7xl mx-auto justify-items-center">
+
+
+            </section>
+        </section>
+
+        <section id="secC" class="bg-cyan-700 flex flex-col items-center p-7 gap-3">
+            <h2 class="text-neutral-50 text-2xl">Cesto</h2>
+            <section id="cesto" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
+            gap-6 w-full max-w-7xl mx-auto justify-items-center">
+
+
+            </section>
+
+            <section id="barra" class="flex justify-between bg-cyan-50 w-full p-10 rounded-lg">
+                <section class="p-1">
+                    <label for="vlr">Valor Total: </label>
+                    <p id="vlr"></p>
+                </section>
+
+                <button id="limparCesto" class="bg-red-500 p-2 rounded-lg hover:bg-red-700 text-white font-bold">Limpar Cesto</button>
+            </section>
+
+        </section>
+
+    </main>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>

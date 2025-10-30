@@ -2,7 +2,7 @@
 import{ produtos } from './produtos.js';
 
 const secaoProdutos = document.getElementById('produtos');
-const secaoCesto = document.getElementById('cesto');
+
 const valorTotalP = document.querySelector('#secC #vlr')
 let valorTotal = 0.0;
 valorTotalP.textContent = `${valorTotal}€`
