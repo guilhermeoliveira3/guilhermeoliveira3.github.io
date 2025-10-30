@@ -60,14 +60,19 @@ nav a {
 #produtos article {
     padding: 1.5rem;
     background-color: snow;
-    max-width: 300px;
+    max-width: 200px;
     margin-top: 15px;
     gap: 10px;
+    border-radius: 10px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
 
+}
+
+#produtos article p {
+    
 }
 
 #produtos article img {
