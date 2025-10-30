@@ -6,7 +6,11 @@ const secaoCesto = document.getElementById('cesto');
 const valorTotalP = document.querySelector('#secC #vlr')
 let valorTotal = 0.0;
 
-valorTotalP.textContent += `${valorTotal.toFixed(2)}€`
+function attCesto() {
+    valorTotalP.textContent = `${valorTotal.toFixed(2)}€`
+}
+
+valorTotalP.textContent = `${valorTotal.toFixed(2)}€`
 produtos.forEach(produto => {
     const art = document.createElement(`article`);
 
@@ -37,10 +41,12 @@ produtos.forEach(produto => {
             secaoCesto.appendChild(art);
             btn.textContent = "- Remover do Cesto"
             valorTotal += produto.price;
+            attCesto();
         } else {
             secaoProdutos.appendChild(art);
             btn.textContent = "+ Adicionar ao Cesto"
             valorTotal -= produto.price;
+            attCesto();
         }
     })
 
