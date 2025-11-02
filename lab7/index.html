@@ -70,14 +70,33 @@
 
             </section>
 
-            <section id="barra" class="flex justify-between bg-cyan-50 w-full p-10 rounded-lg">
+            <section class="flex justify-center">
+                <button id="limparCesto" class="bg-red-500 p-2 rounded-lg hover:bg-red-700 text-white font-bold">Limpar
+                    Cesto</button>
+            </section>
+
+
+
+            <section id="barra" class="flex flex-col items-center bg-cyan-50 w-50 p-10 rounded-lg">
                 <section class="p-1">
                     <label for="vlr">Valor Total: </label>
-                    <p id="vlr"></p>
+                    <p id="vlr" class="font-bold"></p>
                 </section>
 
-                <button id="limparCesto" class="bg-red-500 p-2 rounded-lg hover:bg-red-700 text-white font-bold">Limpar Cesto</button>
+                <label for="deisi" class="p-2">És estudante DEISI?</label>
+                <input type="checkbox" id="deisi">
+
+                <label for="cupom" class="p-2">Tens cupom de desconto?</label>
+                <input type="text" id="cupom" placeholder="Insira Cumpom" class="">
+
+                <button id="comprar"
+                    class="bg-green-500 p-2 rounded-lg hover:bg-green-700 text-white font-bold">Comprar</button>
+
+                <p id="res"></p>
             </section>
+            
+
+
 
         </section>
 
